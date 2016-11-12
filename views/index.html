@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Real-Time Analytics</title>
+  </head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  <body>
+    <nav class="navbar navbar-inverse" style="border-radius: 0px">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Real-Time Analytics <span class="coligo"> | COLIGO.IO</span></a>
+        </div>
+      </div>
+    </nav>
+
+      <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              <h3>Open up the analytics dashboard in a new ab/window</h3>
+              <h4 class="header"><a href="/dashboard">Analytics Dashboard</a></h4>
+              <h3>Use the links below to test the real-time analytics dashboard</h3>
+              <h4 class="header"><a href="/">Homepage</a></h4>
+              <h4 class="header"><a href="/about">About us</a></h4>
+              <h4 class="header"><a href="/contact">Contact us</a></h4>
+
+            </div>
+          </div>
+      </div>
+
+      <script src="/socket.io/socket.io.js"></script>
+      <script>
+        var socket = io();
+        var visitorData = {
+          referringSite: document.referrer,
+          page: location.pathname
+        };
+        socket.emit('visitor-data', visitorData);
+      </script>
+
+  </body>
+</html>
